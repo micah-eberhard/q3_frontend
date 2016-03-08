@@ -1,0 +1,69 @@
+<h1 class="center header">{{HC.header}}</h1>
+<div class="row">
+  <div class="col-md-1">
+    Good:
+  </div>
+  <div class="col-md-11">
+    <input class="center" type="number" name="goodThreshold" ng-model="goodThreshold" value="">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-1">
+    Bad:
+  </div>
+  <div class="col-md-11">
+    <input class="center" type="number" name="critThreshold" ng-model="critThreshold" value="">
+  </div>
+</div>
+<div class="row" ng-init="critThreshold=800; goodThreshold=250;">
+    <div ng-repeat="item in HC.allStatus track by $index" class="wrapper">
+      <a ng-init="showDetails = false" ng-click="showDetails = !showDetails">
+        <div class="col-md-3 serverItem center" ng-class="{'warn': (item.responseTime * 1000 < critThreshold && item.responseTime * 1000 > goodThreshold), 'crit': (item.responseTime * 1000 > critThreshold), 'good': (item.responseTime * 1000 <= goodThreshold)}">
+          <div class="row">
+            <div class="col-md-12">
+              <h2>{{item.name}}</h2>
+            </div>
+          </div>
+          <div ng-show="showDetails" class="">
+            <div class="row">
+              <div class="col-md-12">
+                ID: {{item.id}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                OS: {{item.os}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                Memory: {{item.memory}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                CPU: {{item.cpu}}
+              </div>
+            </div>
+            <h3>----</h3>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              {{(item.responseTime * 1000).toFixed(2)}}ms
+            </div>
+          </div>
+          <div class="col-md-5">
+
+          </div>
+          <div class="col-md-2" ng-class="{'warn': (HC.allAvg[item.id].avgPing < critThreshold && HC.allAvg[item.id].avgPing > goodThreshold), 'crit': (HC.allAvg[item.id].avgPing > critThreshold), 'good': (HC.allAvg[item.id].avgPing <= goodThreshold)}">
+            <div ng-repeat="(key, value) in HC.allAvg[item.id]" class="">
+              {{key}}: {{value}}
+            </div>
+          </div>
+          <div class="col-md-5">
+
+          </div>
+        </div>
+      </a>
+    </div>
+</div>

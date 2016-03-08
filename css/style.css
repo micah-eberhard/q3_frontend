@@ -1,0 +1,49 @@
+.serverItem{
+  margin: 1rem;
+  background-color: rgb(230, 230, 230);
+  border: .2rem solid black;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+}
+.center{
+  text-align: center;
+  width: 95%;
+}
+.header{
+  text-shadow: 2px 2px rgb(121, 121, 121);
+}
+
+.warn{
+  background-color: rgba(207, 202, 135, 1);
+  border-radius: 1rem;
+}
+.crit{
+  background-color: rgba(219, 162, 157, 1);
+  border-radius: 1rem;
+}
+.good{
+  background-color: rgba(140, 218, 159, 1);
+  border-radius: 1rem;
+}
+
+input{
+  background-color: rgb(168, 217, 228);
+  border: .1rem solid black;
+  border-radius: 1rem;
+}
+body{
+  background-color: rgb(0, 153, 180);
+}
+
+a:hover{
+  color: rgb(0, 0, 0);
+}
+a:active{
+  color: rgb(0, 0, 0);
+}
+a:visited{
+  color: rgb(0, 0, 0);
+}
+a:link{
+  color: rgb(0, 0, 0) !important;
+}
